@@ -40,7 +40,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // 4. Buat default user admin jika belum ada
         $adminUser = User::firstOrCreate(
-            ['email' => 'admin@example.com'],
+            ['email' => 'admin@admin.com'],
             [
                 'name' => 'Administrator',
                 'password' => Hash::make('12345678'),

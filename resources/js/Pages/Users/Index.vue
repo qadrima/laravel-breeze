@@ -53,7 +53,7 @@ const changePerPage = () => {
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="text-gray-900">
-                        <div class="p-4 flex">
+                        <div class="px-6 pt-6 flex">
                             <div class="flex items-center">
                                 <label for="perPage" class="mr-2 text-sm text-gray-600">Show:</label>
                                 <select 
@@ -68,8 +68,8 @@ const changePerPage = () => {
                                 </select>
                             </div>
                         </div>
-                        <div class="overflow-x-auto bg-white">
-                            <table class="min-w-full divide-y divide-gray-200 text-sm">
+                        <div class="sm:p-6 overflow-x-auto bg-white">
+                            <table class="min-w-full divide-y divide-gray-200 text-sm sm:rounded-lg sm:shadow">
                                 <thead class="bg-gray-50">
                                     <tr>
                                         <th scope="col" class="px-6 py-3 text-left font-semibold text-gray-600 uppercase tracking-wider">Name</th>
@@ -118,7 +118,7 @@ const changePerPage = () => {
                             </table>
                         </div>
                         
-                        <div class="my-10 p-3">
+                        <div class="mb-5 p-3">
                             <Pagination :links="users.links" />
                         </div>
                     </div>
