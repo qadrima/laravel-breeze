@@ -8,6 +8,8 @@ import TextInput from '@/Components/TextInput.vue';
 
 const props = defineProps({
     user: Object,
+    roles: Array,
+    userRoles: Array,
 });
 
 const form = useForm({
@@ -15,6 +17,7 @@ const form = useForm({
     email: props.user.email,
     password: '',
     password_confirmation: '',
+    roles: props.userRoles || [],
 });
 
 const submit = () => {
@@ -82,6 +85,25 @@ const submit = () => {
                                     autocomplete="new-password"
                                 />
                                 <InputError class="mt-2" :message="form.errors.password_confirmation" />
+                            </div>
+
+                            <div>
+                                <InputLabel for="roles" value="Roles" />
+                                <div class="mt-2">
+                                    <div v-for="role in roles" :key="role.id" class="flex items-center">
+                                        <input 
+                                            type="checkbox" 
+                                            :id="'role-' + role.id" 
+                                            :value="role.id" 
+                                            v-model="form.roles"
+                                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                                        >
+                                        <label :for="'role-' + role.id" class="ml-2 block text-sm text-gray-900">
+                                            {{ role.name }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <InputError class="mt-2" :message="form.errors.roles" />
                             </div>
 
                             <div class="flex items-center gap-4">
