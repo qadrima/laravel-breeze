@@ -11,10 +11,14 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $perPage = $request->input('perPage', 5);
+        
         return Inertia::render('Users/Index', [
-            'users' => User::with('roles')->latest()->paginate(10)
+            'users' => User::with('roles')->latest()->paginate($perPage)->onEachSide(1),
+            'perPage' => $perPage,
+            'perPageOptions' => [5, 10, 50, 100],
         ]);
     }
 
