@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import SidebarLayout from '@/Layouts/SidebarLayout.vue';
 
 defineProps({
     roles: Array
@@ -10,18 +11,16 @@ defineProps({
 <template>
     <Head title="Roles" />
 
-    <AuthenticatedLayout>
-        <template #header>
-            <div class="flex justify-between items-center">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">Roles</h2>
-                <Link
-                    :href="route('roles.create')"
-                    class="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
-                >
-                    Create Role
-                </Link>
-            </div>
-        </template>
+    <SidebarLayout>
+        <div class="flex justify-between items-center">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Roles</h2>
+            <Link
+                :href="route('roles.create')"
+                class="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
+            >
+                Create Role
+            </Link>
+        </div>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -77,5 +76,5 @@ defineProps({
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout>
+    </SidebarLayout>
 </template> 
