@@ -1,11 +1,12 @@
 <script setup>
 import { Head, useForm } from '@inertiajs/vue3';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import SidebarLayout from '@/Layouts/SidebarLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import Checkbox from '@/Components/Checkbox.vue';
+import PrimaryLink from '@/Components/PrimaryLink.vue';
 
 const props = defineProps({
     permissions: Array
@@ -25,7 +26,7 @@ const submit = () => {
 <template>
     <Head title="Create Role" />
 
-    <AuthenticatedLayout>
+    <SidebarLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Create Role</h2>
         </template>
@@ -68,11 +69,12 @@ const submit = () => {
 
                             <div class="flex items-center gap-4">
                                 <PrimaryButton :disabled="form.processing">Create Role</PrimaryButton>
+                                <PrimaryLink :href="route('roles.index')">Cancel</PrimaryLink>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout>
+    </SidebarLayout>
 </template> 

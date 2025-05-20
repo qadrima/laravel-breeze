@@ -1,10 +1,11 @@
 <script setup>
 import { Head, useForm } from '@inertiajs/vue3';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import SidebarLayout from '@/Layouts/SidebarLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import PrimaryLink from '@/Components/PrimaryLink.vue';
 
 const props = defineProps({
     roles: Array,
@@ -26,7 +27,7 @@ const submit = () => {
 <template>
     <Head title="Create User" />
 
-    <AuthenticatedLayout>
+    <SidebarLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Create User</h2>
         </template>
@@ -108,11 +109,12 @@ const submit = () => {
 
                             <div class="flex items-center gap-4">
                                 <PrimaryButton :disabled="form.processing">Create User</PrimaryButton>
+                                <PrimaryLink :href="route('users.index')">Cancel</PrimaryLink>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout>
+    </SidebarLayout>
 </template> 

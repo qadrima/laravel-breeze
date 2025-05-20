@@ -1,9 +1,10 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import SidebarLayout from '@/Layouts/SidebarLayout.vue';
 import { router } from '@inertiajs/vue3';
 import Pagination from '@/Components/Pagination.vue';
 import { ref, onMounted } from 'vue';
+import PrimaryLink from '@/Components/PrimaryLink.vue';
 
 const props = defineProps({
     users: Object,
@@ -36,7 +37,7 @@ const changePerPage = () => {
 <template>
     <Head title="Users" />
 
-    <AuthenticatedLayout>
+    <SidebarLayout>
         <template #header>
             <div class="flex justify-between items-center">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">Users</h2>
@@ -52,6 +53,12 @@ const changePerPage = () => {
         <div class="sm:py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
+                    <div class="p-6 flex justify-between items-center">
+                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Users</h2>
+                        <PrimaryLink :href="route('users.create')">Create User</PrimaryLink> 
+                    </div>
+
                     <div class="text-gray-900">
                         <div class="px-6 pt-6 flex">
                             <div class="flex items-center">
@@ -125,5 +132,5 @@ const changePerPage = () => {
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout>
+    </SidebarLayout>
 </template> 

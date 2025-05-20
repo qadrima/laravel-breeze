@@ -21,11 +21,14 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // 1. Buat permissions
         $permissions = [
+            'view roles',
+            'create roles',
+            'edit roles',
+            'delete roles',
             'view users',
             'create users',
             'edit users',
             'delete users',
-            'manage roles',
         ];
 
         foreach ($permissions as $permission) {
