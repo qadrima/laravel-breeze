@@ -11,6 +11,14 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:view users')->only(['index', 'show']);
+        $this->middleware('can:create users')->only(['create', 'store']);
+        $this->middleware('can:edit users')->only(['edit', 'update']);
+        $this->middleware('can:delete users')->only(['destroy']);
+    }
+
     public function index(Request $request)
     {
         $perPage = $request->input('perPage', 5);
